@@ -60,6 +60,12 @@ form {
   display: flex;
   list-style: none;
   border-bottom: 1px solid #bebebe;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.new-list label {
+  width: 100%;
 }
 
 .text-area {
