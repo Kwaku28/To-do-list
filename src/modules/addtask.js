@@ -43,6 +43,32 @@ class TodoList {
           list.innerHTML += li;
         });
 
+        const checkbox = document.querySelectorAll('.checkbox');
+
+        checkbox.forEach((check) => {
+          check.addEventListener('change', () => {
+            if (check.checked) {
+              check.parentElement.classList.add('complete');
+              this.tasks = this.tasks.map((task) => {
+                if (task.id === parseInt(check.parentElement.id, 5)) {
+                  task.completed = check.checked;
+                }
+                return task;
+              });
+              this.setStorage();
+            } else {
+              check.parentElement.classList.remove('complete');
+              this.tasks = this.tasks.map((task) => {
+                if (task.id === parseInt(check.parentElement.id, 10)) {
+                  task.completed = false;
+                }
+                return task;
+              });
+              this.setStorage();
+            }
+          });
+        });
+
         // A function for editing the task description.
         const textArea = document.querySelectorAll('.text-area');
         textArea.forEach((area) => {
@@ -67,6 +93,11 @@ class TodoList {
         this.tasks.forEach((task) => {
           task.completed = true;
         });
+      };
+
+      // The "Clear all completed" function.
+      cleanCompleted = () => {
+        this.tasks = this.tasks.filter((task) => task.completed === false);
       };
 
       setStorage = () => {
