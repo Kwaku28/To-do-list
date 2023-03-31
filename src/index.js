@@ -1,43 +1,33 @@
 import './style.css';
-
-const toDoList = [
-  {
-    index: '1',
-    description: 'Go for a walk',
-    completed: 'false',
-  },
-
-  {
-    index: '1',
-    description: 'Doctors appointment',
-    completed: 'false',
-  },
-
-  {
-    index: '1',
-    description: 'Pick daughter from school',
-    completed: 'false',
-  },
-];
+import TodoList from './modules/addtask.js';
 
 const taskList = document.querySelector('.task-container');
+const addTodo = document.querySelector('form');
+const description = document.querySelector('#new-task');
 
-taskList.innerHTML = '';
+const todoList = new TodoList();
+addTodo.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (description.value.trim()) {
+    todoList.addTask(description.value);
+    todoList.setStorage();
+    todoList.resetIndex();
+    todoList.displayToDo(taskList);
+    addTodo.reset();
+  }
+});
 
-const loadList = () => {
-  toDoList.forEach((todolist) => {
-    const li = document.createElement('li');
-    li.classList.add('new-list');
-    li.innerHTML = `
-        <input type="checkbox">
-        <label>${todolist.description}</label>
-        <span class="material-symbols-outlined">more_vert</span>
-        `;
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.classList.contains('delete')) {
+    const id = parseInt(e.target.parentElement.id, 5);
+    todoList.removeList(id);
+    todoList.resetIndex();
+    todoList.setStorage();
+    todoList.displayToDo(taskList);
+  }
+});
 
-    taskList.append(li);
-  });
-};
-
-window.onload = () => {
-  loadList();
-};
+document.addEventListener('DOMContentLoaded', () => {
+  todoList.getStorage();
+  todoList.displayToDo(taskList);
+});

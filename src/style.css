@@ -10,7 +10,7 @@ main {
   flex-direction: column;
   margin-left: 30%;
   margin-right: 30%;
-  margin-top: 15%;
+  margin-top: 5%;
   background-color: #ebebeb;
   gap: 20px;
   padding: 10px;
@@ -54,6 +54,8 @@ form {
 .task-container {
   font-size: 15px;
   color: #545862;
+  overflow-y: scroll;
+  max-height: 50vh;
 }
 
 .new-list {
@@ -62,10 +64,6 @@ form {
   border-bottom: 1px solid #bebebe;
   gap: 10px;
   padding-top: 20px;
-}
-
-.new-list label {
-  width: 100%;
 }
 
 .text-area {
@@ -94,4 +92,12 @@ button {
   font-size: 18px;
   background-color: #ebebeb;
   color: #8f9192;
+  cursor: pointer;
+}
+
+.completed {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin-left: 30%;
 }
