@@ -4,8 +4,15 @@ import TodoList from './modules/addtask.js';
 const taskList = document.querySelector('.task-container');
 const addTodo = document.querySelector('form');
 const description = document.querySelector('#new-task');
+const clearAll = document.querySelector('.completed');
 
 const todoList = new TodoList();
+clearAll.addEventListener('click', () => {
+  todoList.cleanCompleted();
+  todoList.setStorage();
+  todoList.displayToDo(taskList);
+});
+
 addTodo.addEventListener('submit', (e) => {
   e.preventDefault();
   if (description.value.trim()) {
