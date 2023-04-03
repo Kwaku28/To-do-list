@@ -1,4 +1,4 @@
-const TodoList = require('./addtask.js');
+import TodoList from './addtask.js';
 
 // Add task
 describe('addTask', () => {
