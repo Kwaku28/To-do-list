@@ -17,18 +17,18 @@ describe('addTask', () => {
 });
 
 describe('removeTask', () => {
- it('should remove a task from the list', () => {
-  const todoList = new TodoList();
-   
-  todoList.addTask('Write code');
-  todoList.addTask('Test code');
-  todoList.removeList(1);
-   
-  expect(todoList.tasks).toHaveLength(1);
-  expect(todoList.tasks[0]).toEqual({
-   id: 2,
-   description: 'Test code',
-   completed: false,
+  it('should remove a task from the list', () => {
+    const todoList = new TodoList();
+
+    todoList.addTask('Write code');
+    todoList.addTask('Test code');
+    todoList.removeList(1);
+
+    expect(todoList.tasks).toHaveLength(1);
+    expect(todoList.tasks[0]).toEqual({
+      id: 2,
+      description: 'Test code',
+      completed: false,
+    });
   });
- });
 });
