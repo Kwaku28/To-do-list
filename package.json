@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "webpack --mode development",
     "build": "webpack",
     "start": "webpack serve --open"
@@ -19,6 +19,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.27.5",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.5.0",
     "style-loader": "^3.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
@@ -29,6 +30,8 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
-    "bootstrap-icons": "^1.10.3"
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "bootstrap-icons": "^1.10.3",
+    "jest-environment-jsdom": "^29.5.0"
   }
 }
