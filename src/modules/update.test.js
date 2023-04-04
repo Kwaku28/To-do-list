@@ -30,3 +30,17 @@ describe('Should editing the task description and and update completed task', ()
     });
   });
 });
+
+describe('Test the "Clear all completed" function', () => {
+  test('cleanCompleted should remove all completed tasks from the tasks array', () => {
+    const todoList = new TodoList();
+    todoList.addTask('Task 1');
+    todoList.addTask('Task 2');
+    todoList.addTask('Task 3');
+    todoList.tasks[1].completed = true;
+    todoList.cleanCompleted();
+    expect(todoList.tasks.length).toBe(2);
+    expect(todoList.tasks[0].description).toBe('Task 1');
+    expect(todoList.tasks[1].description).toBe('Task 3');
+  });
+});
