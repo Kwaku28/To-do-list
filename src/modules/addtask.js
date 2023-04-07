@@ -50,7 +50,7 @@ class TodoList {
             if (check.checked) {
               check.parentElement.classList.add('complete');
               this.tasks = this.tasks.map((task) => {
-                if (task.id === parseInt(check.parentElement.id, 5)) {
+                if (task.id === parseInt(check.parentElement.id, 10)) {
                   task.completed = check.checked;
                 }
                 return task;
