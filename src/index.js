@@ -26,7 +26,7 @@ addTodo.addEventListener('submit', (e) => {
 
 document.addEventListener('click', (e) => {
   if (e.target && e.target.classList.contains('delete')) {
-    const id = parseInt(e.target.parentElement.id, 5);
+    const id = parseInt(e.target.parentElement.id, 10);
     todoList.removeList(id);
     todoList.resetIndex();
     todoList.setStorage();
